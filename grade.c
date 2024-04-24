@@ -1,137 +1,55 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "grades.h"
-//#ifndef GRADES_H
-//#define GRADES_H
-/*#ifndef STUDENT_DOT_H
-#define STUDENT_DOT_H*/
-int grade(int SRN)
-{
-    
-    int cgpa=0;
-    int res1 = 0;
-    int res2 = 0;
-    int res3 = 0;
-    //int m1[6];
-    //int m2[6];
-    //int m3[6];
-    char sub[][20] = {"Physics", "Maths", "EEE", "Mech", "C.S", "EVS"};
-    //printf("Enter your SRN : \n");
-    //scanf("%d", &SRN);
-    if (SRN == 1)
-    {
-        /*int m1[4] = {90, 89, 88, 94};
-        int m2[4] = {89, 91, 85, 90};
-        int m3[4] = {86, 94, 78, 88};*/
 
-        int m1[6]={34,45,64,79,38,59};
-  	int m2[6]={74,89,27,37,59,30};
-  	int m3[6]={90,98,46,94,95,24};
-  	for (int i = 0; i < 6; i++) {
-     	printf("%s\t\t\t\%d\t\%d\t\%d\n",sub[i],m1[i],m2[i],m3[i]);
-     	res1=res1+m1[i];
-     	res2=res2+m2[i];
-     	res3=res3+m3[i];
-}
-    cgpa=(res1+res2+res3)/100;
-     printf("Total\t\t\t%d\t%d\t%d\nCGPA:%d\n",res1,res2,res3,cgpa);
-   
+void grade(int SRN) {
+    const char *names[] = {"Ananya Shet", "Taniya", "Rinna", "Akash", "Jhanvi"};
+    const char *subjects[] = {"Physics", "Maths", "EEE", "Mech", "C.S", "EVS"};
+    int total_marks = 600; // Total marks for all subjects
+    int total1, total2, total3;
+    int cgpa;
 
-        
-    }
-    else if (SRN == 2)
-    {
-        int m1[6]={35,35,84,29,38,29};
-  	int m2[6]={34,39,57,37,39,20};
-  	int m3[6]={70,98,87,94,55,94};
-  	for (int i = 0; i < 6; i++) {
-     	printf("%s\t\t\t%d\t%d\t%d\n", sub[i],m1[i],m2[i],m3[i]);
-     	res1=res1+m1[i];
-     	res2=res2+m2[i];
-     	res3=res3+m3[i];
-}
-    cgpa=(res1+res2+res3)/100;
-     printf("Total\t\t\t%d\t%d\t%d\nCGPA:%d\n",res1,res2,res3,cgpa);
-   }
-    else if (SRN == 3)
-    {
-        int m1[6]={74,45,24,29,38,29};
-  	int m2[6]={34,39,32,37,39,20};
-  	int m3[6]={70,68,49,94,55,74};
-  	for (int i = 0; i < 6; i++) {
-     		printf("%s\t\t%d\t%d\t%d\n",sub[i],m1[i],m2[i],m3[i]);
-     		res1=res1+m1[i];
-     		res2=res2+m2[i];
-     		res3=res3+m3[i];
-}
-    cgpa=(res1+res2+res3)/100;
-     printf("Total\t\t%d\t%d\t%d\nCGPA:%d\n",res1,res2,res3,cgpa);
-   }
+    if (SRN >= 1 && SRN <= 5) {
+        struct Marks *marks_data = (struct Marks *)malloc(5 * sizeof(struct Marks));
+        if (marks_data == NULL) {
+            printf("Memory allocation failed\n");
+            return;
+        }
 
-else if(SRN == 3)
-    {
-        int m1[6]={90,45,24,29,38,29};
-  	int m2[6]={34,39,32,37,39,20};
-  	int m3[6]={30,58,39,94,55,94};
-  	for (int i = 0; i < 6; i++) {
-     	printf("%s\t\t%d\t%d\t%d\n", sub[i],m1[i],m2[i],m3[i]);
-     	res1=res1+m1[i];
-     	res2=res2+m2[i];
-     	res3=res3+m3[i];
-}
-    cgpa=(res1+res2+res3)/100;
-     printf("Total\t\t%d\t%d\t%d\nCGPA:%d\n",res1,res2,res3,cgpa);
-   }
-    else if(SRN== 4)
-    {
-        int m1[6]={67,45,24,29,38,29};
-  	int m2[6]={34,39,32,37,39,10};
-  	int m3[6]={72,28,89,94,55,94};
-  	for (int i = 0; i < 6; i++) {
-     	printf("%s\t\t%d\t%d\t%d\n", sub[i],m1[i],m2[i],m3[i]);
-     	res1=res1+m1[i];
-     	res2=res2+m2[i];
-     	res3=res3+m3[i];
-}
-    cgpa=(res1+res2+res3)/100;
-     printf("Total\t\t%d\t%d\t%d\nCGPA:%d\n",res1,res2,res3,cgpa);
-   }
-    else if(SRN == 5)
-    {
-        int m1[6]={59,45,24,29,38,29};
-  	int m2[6]={34,59,32,37,19,20};
-  	int m3[6]={67,34,39,94,55,94};
-  	for (int i = 0; i < 6; i++) {
-     	printf("%s\t\t%d\t%d\t%d\n", sub[i],m1[i],m2[i],m3[i]);
-     	res1=res1+m1[i];
-     	res2=res2+m2[i];
-     	res3=res3+m3[i];
-    }
-    cgpa=(res1+res2+res3)/100;
-     printf("Total\t\t%d\t%d\t%d\nCGPA:%d\n",res1,res2,res3,cgpa);
-    }
-    else if(SRN>=6){
-        printf("NO DATA AVALIABLE\n");
-    }
-    switch(cgpa)
-    {
-        case 10: printf(" \t\tGRADE :- S   ");
-            break;
-        case 9: printf("  \t\tGRADE :- A    ");
-            break;
-        case 8: printf("   \t\tGRADE :- B     ");
-            break;
-        case 7: printf("  \t\tGRADE :- C      ");
-            break;
-        case 6: printf("   \t\tGRADE :- D      ");
-            break;
-        case 5: printf("   \t\tGRADE :- E       ");
-            break;
-        case 4: printf("  \t\tGRADE :- Fail   ");
-            break;
-        default: printf("   \t\tNONE           ");
-            break;
-    }
-    //printf("%s\n", student(SRN));
-    return 0;
-    }
+        marks_data[0] = (struct Marks){{87, 95, 64, 79, 78, 69}, {78, 89, 87, 90, 69, 70}, {80, 90, 86, 67, 95, 74}};
+        marks_data[1] = (struct Marks){{78, 85, 84, 89, 88, 89}, {74, 89, 59, 67, 89, 89}, {90, 98, 87, 94, 95, 94}};
+        marks_data[2] = (struct Marks){{67, 34, 89, 70, 88, 56}, {80, 49, 22, 58, 49, 50}, {90, 68, 45, 78, 46, 54}};
+        marks_data[3] = (struct Marks){{100, 95, 89, 78, 90, 78}, {65, 89, 52, 67, 59, 46}, {50, 58, 89, 94, 95, 94}};
+        marks_data[4] = (struct Marks){{45, 29, 69, 40, 37, 30}, {50, 37, 47, 57, 39, 50}, {12, 68, 39, 54, 25, 54}};
 
+        total1 = total2 = total3 = 0;
+
+        struct Marks student_marks = marks_data[SRN - 1]; // Adjust index for array
+
+        for (int i = 0; i < 6; i++) {
+            total1 += student_marks.marks1[i];
+            total2 += student_marks.marks2[i];
+            total3 += student_marks.marks3[i];
+            printf("%s\t\t%d\t%d\t%d\n", subjects[i], student_marks.marks1[i], student_marks.marks2[i], student_marks.marks3[i]);
+        }
+
+        cgpa = (total1 + total2 + total3) / (200); // Assuming total marks for each subject is 100
+        printf("Total\t\t%d\t%d\t%d\nCGPA:%d\n", total1, total2, total3, cgpa);
+
+        // Print grade based on CGPA
+        switch (cgpa) {
+            case 10: printf("\t\tGRADE :- S\n"); break;
+            case 9: printf("\t\tGRADE :- A\n"); break;
+            case 8: printf("\t\tGRADE :- B\n"); break;
+            case 7: printf("\t\tGRADE :- C\n"); break;
+            case 6: printf("\t\tGRADE :- D\n"); break;
+            case 5: printf("\t\tGRADE :- E\n"); break;
+            default: printf("\t\tGRADE :- Fail\n"); break;
+        }
+
+        free(marks_data);
+    } else {
+        printf("NO DATA AVAILABLE\n");
+    }
+}
